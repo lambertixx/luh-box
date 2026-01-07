@@ -57,7 +57,7 @@ export interface Badge {
 export const mockUser: User = {
   riotId: "PhoenixRising",
   avatarUrl: "/gamer-avatar-cyberpunk.jpg",
-  region: "NA1",
+  region: "BR1",
 }
 
 export const mockStats: Stats = {
