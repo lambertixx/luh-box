@@ -8,9 +8,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron" })
 
 export const metadata: Metadata = {
-  title: "VALO Rewards - Community Points Tracker",
-  description: "Track your Valorant community rewards, milestones, and climb the leaderboard",
-    generator: 'v0.app'
+  title: "🎁 Luh Box",
+  description: "Aqui você ganha mais!",
 }
 
 export const viewport: Viewport = {
@@ -26,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} ${orbitron.variable} font-sans antialiased`}>
+      <body
+        className={`${inter.variable} ${orbitron.variable} font-sans antialiased`}
+      >
         {children}
         <Analytics />
       </body>

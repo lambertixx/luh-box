@@ -24,14 +24,14 @@ export function SimulateButton() {
     if (milestoneUnlocked) {
       setShowConfetti(true)
       toast({
-        title: "🎉 Milestone Unlocked!",
-        description: `+${pointsGained} points! You earned: ${milestoneUnlocked.rewardName}`,
+        title: "🎉 Desbloqueado!",
+        description: `+${pointsGained} pontos! Você ganhou: ${milestoneUnlocked.rewardName}`,
       })
       setTimeout(() => setShowConfetti(false), 3000)
     } else {
       toast({
-        title: `+${pointsGained} Points Earned!`,
-        description: "Match synced successfully. Keep playing!",
+        title: `+${pointsGained} pontos ganhos!`,
+        description: "Partida sincronizada! Continue jogando!",
       })
     }
   }
@@ -54,7 +54,7 @@ export function SimulateButton() {
         style={{ fontFamily: "var(--font-orbitron)" }}
       >
         <Zap className="w-5 h-5 mr-2" />
-        Simulate Match
+        Simular partida
       </Button>
     </div>
   )

@@ -1,7 +1,12 @@
 "use client"
 
 import { useGame } from "@/lib/game-context"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 export function BadgesDisplay() {
   const { badges } = useGame()
@@ -11,7 +16,9 @@ export function BadgesDisplay() {
 
   return (
     <div className="glass-card rounded-xl p-4">
-      <h4 className="text-sm font-medium text-muted-foreground mb-3">Earned Badges</h4>
+      <h4 className="text-sm font-medium text-muted-foreground mb-3">
+        Emblemas desbloqueados
+      </h4>
       <div className="flex flex-wrap gap-2">
         <TooltipProvider>
           {earnedBadges.map((badge) => (
@@ -29,7 +36,7 @@ export function BadgesDisplay() {
                 </div>
               </TooltipTrigger>
               <TooltipContent className="glass-card border-border/50">
-                <p className="text-sm">Badge: {badge.name}</p>
+                <p className="text-sm text-white">Emblema: {badge.name}</p>
               </TooltipContent>
             </Tooltip>
           ))}

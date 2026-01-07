@@ -20,9 +20,21 @@ export function OnboardingPanel() {
   }
 
   const features = [
-    { icon: Trophy, title: "Earn Rewards", description: "Unlock exclusive items as you play" },
-    { icon: Users, title: "Climb Ranks", description: "Compete on the global leaderboard" },
-    { icon: Zap, title: "Daily Missions", description: "Complete challenges for bonus points" },
+    {
+      icon: Trophy,
+      title: "Ganhe Recompensas",
+      description: "Desbloqueie itens exclusivos enquanto joga",
+    },
+    {
+      icon: Users,
+      title: "Suba no Ranking",
+      description: "Compita no placar global",
+    },
+    {
+      icon: Zap,
+      title: "Missões Diárias",
+      description: "Complete desafios para ganhar pontos bônus",
+    },
   ]
 
   return (
@@ -38,12 +50,15 @@ export function OnboardingPanel() {
             <Gamepad2 className="w-10 h-10 text-primary" />
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 neon-text" style={{ fontFamily: "var(--font-orbitron)" }}>
-            Welcome to <span className="text-primary">VALO</span>REWARDS
+          <h1
+            className="text-3xl md:text-4xl font-bold mb-4 neon-text"
+            style={{ fontFamily: "var(--font-orbitron)" }}
+          >
+            Bem vindo ao <span className="text-primary">LUH</span>BOX
           </h1>
 
           <p className="text-muted-foreground mb-8 text-lg">
-            Track your progress, earn exclusive rewards, and climb the leaderboard
+            Jogue partidas da Mentora e ganhe recompensas extras!
           </p>
 
           {/* Features */}
@@ -55,17 +70,22 @@ export function OnboardingPanel() {
               >
                 <feature.icon className="w-8 h-8 text-primary mx-auto mb-2" />
                 <h3 className="font-semibold mb-1">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
 
           {/* Connect Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+          >
             <Input
               value={riotId}
               onChange={(e) => setRiotId(e.target.value)}
-              placeholder="Enter your Riot ID..."
+              placeholder="Riot ID..."
               className="flex-1 bg-input/50 border-border/50 focus:border-primary h-12 text-center sm:text-left"
             />
             <Button
@@ -73,12 +93,10 @@ export function OnboardingPanel() {
               size="lg"
               className="bg-primary hover:bg-primary/80 text-primary-foreground neon-glow transition-all duration-200 hover:scale-105 active:scale-95 h-12"
             >
-              Get Started
+              Iniciar
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </form>
-
-          <p className="text-xs text-muted-foreground mt-4">Demo mode - No actual Riot account required</p>
         </div>
       </div>
     </div>

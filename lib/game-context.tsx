@@ -1,6 +1,12 @@
 "use client"
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from "react"
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  type ReactNode,
+} from "react"
 import {
   mockUser,
   mockStats,
@@ -37,7 +43,10 @@ interface GameState {
 interface GameContextType extends GameState {
   connectRiotId: (riotId: string) => void
   disconnect: () => void
-  simulateMatch: () => { pointsGained: number; milestoneUnlocked: Milestone | null }
+  simulateMatch: () => {
+    pointsGained: number
+    milestoneUnlocked: Milestone | null
+  }
   syncMatches: () => Promise<void>
   toggleReducedMotion: () => void
   toggleSound: () => void
@@ -94,12 +103,12 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
       // Update leaderboard position
       const newLeaderboard = prev.leaderboard.map((entry) =>
-        entry.isCurrentUser ? { ...entry, points: newTotal } : entry,
+        entry.isCurrentUser ? { ...entry, points: newTotal } : entry
       )
 
       return {
         ...prev,
-        points: { ...prev.points, total: newTotal, lastUpdated: "Just now" },
+        points: { ...prev.points, total: newTotal, lastUpdated: "agora" },
         milestones: newMilestones,
         leaderboard: newLeaderboard,
       }
@@ -109,7 +118,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const simulateMatch = useCallback(() => {
-    const { pointsGained, missionUpdates, newTotal } = simulateMatchCompleted(state.points.total)
+    const { pointsGained, missionUpdates, newTotal } = simulateMatchCompleted(
+      state.points.total
+    )
 
     let milestoneUnlocked: Milestone | null = null
 
@@ -125,12 +136,12 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
       // Update leaderboard position
       const newLeaderboard = prev.leaderboard.map((entry) =>
-        entry.isCurrentUser ? { ...entry, points: newTotal } : entry,
+        entry.isCurrentUser ? { ...entry, points: newTotal } : entry
       )
 
       return {
         ...prev,
-        points: { ...prev.points, total: newTotal, lastUpdated: "Just now" },
+        points: { ...prev.points, total: newTotal, lastUpdated: "agora" },
         missions: missionUpdates,
         milestones: newMilestones,
         leaderboard: newLeaderboard,

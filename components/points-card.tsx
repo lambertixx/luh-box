@@ -11,11 +11,15 @@ export function PointsCard() {
   const [isAnimating, setIsAnimating] = useState(false)
 
   // Find next milestone
-  const nextMilestone = milestones.find((m) => m.status === "next") || milestones[milestones.length - 1]
+  const nextMilestone =
+    milestones.find((m) => m.status === "next") ||
+    milestones[milestones.length - 1]
   const prevMilestone = milestones.filter((m) => m.status === "unlocked").pop()
   const prevPoints = prevMilestone?.pointsRequired || 0
   const progressPercent = nextMilestone
-    ? ((points.total - prevPoints) / (nextMilestone.pointsRequired - prevPoints)) * 100
+    ? ((points.total - prevPoints) /
+        (nextMilestone.pointsRequired - prevPoints)) *
+      100
     : 100
 
   // Animate count up
@@ -57,14 +61,16 @@ export function PointsCard() {
           <div className="p-2 rounded-lg bg-primary/10">
             <Sparkles className="w-5 h-5 text-primary" />
           </div>
-          <h3 className="font-semibold text-lg">Your Points</h3>
+          <h3 className="font-semibold text-lg">Seus pontos</h3>
         </div>
 
         {/* Points Display */}
         <div className="mb-6">
           <div className="flex items-baseline gap-2">
             <span
-              className={`text-5xl font-bold neon-text ${isAnimating ? "animate-count-up" : ""}`}
+              className={`text-5xl font-bold neon-text ${
+                isAnimating ? "animate-count-up" : ""
+              }`}
               style={{ fontFamily: "var(--font-orbitron)" }}
             >
               {displayPoints.toLocaleString()}
@@ -73,14 +79,16 @@ export function PointsCard() {
           </div>
           <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
             <TrendingUp className="w-3 h-3 text-green-400" />
-            Updated {points.lastUpdated}
+            Atualizado {points.lastUpdated}
           </p>
         </div>
 
         {/* Progress to Next Milestone */}
         <div className="space-y-3">
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Progress to next reward</span>
+            <span className="text-muted-foreground">
+              Progresso para próxima recompensa
+            </span>
             <span className="font-medium">{Math.round(progressPercent)}%</span>
           </div>
 
@@ -102,14 +110,17 @@ export function PointsCard() {
             <div className="flex-1">
               <p className="font-medium">{nextMilestone?.rewardName}</p>
               <p className="text-xs text-muted-foreground">
-                {(nextMilestone?.pointsRequired || 0) - points.total} points away
+                Mais {(nextMilestone?.pointsRequired || 0) - points.total}{" "}
+                pontos
               </p>
             </div>
             <Gift className="w-5 h-5 text-primary" />
           </div>
         </div>
 
-        <p className="text-xs text-muted-foreground text-center mt-4">Play matches to earn points</p>
+        <p className="text-xs text-muted-foreground text-center mt-4">
+          Jogue partidas para ganhar pontos
+        </p>
       </div>
     </div>
   )

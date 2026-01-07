@@ -11,7 +11,7 @@ export function MissionsPanel() {
     <div className="glass-card rounded-2xl p-6">
       <div className="flex items-center gap-2 mb-4">
         <Target className="w-5 h-5 text-primary" />
-        <h3 className="font-semibold">Daily Missions</h3>
+        <h3 className="font-semibold">Missões diárias</h3>
       </div>
 
       <div className="space-y-4">
@@ -24,13 +24,24 @@ export function MissionsPanel() {
               key={mission.id}
               className={`
                 p-3 rounded-lg border transition-all
-                ${isComplete ? "bg-primary/10 border-primary/30" : "bg-secondary/20 border-border/20"}
+                ${
+                  isComplete
+                    ? "bg-primary/10 border-primary/30"
+                    : "bg-secondary/20 border-border/20"
+                }
               `}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className={`text-sm font-medium ${isComplete ? "text-primary" : ""}`}>{mission.title}</span>
+                <span
+                  className={`text-sm font-medium ${
+                    isComplete ? "text-primary" : ""
+                  }`}
+                >
+                  {mission.title}
+                </span>
                 <span className="text-xs flex items-center gap-1 text-muted-foreground">
-                  <Sparkles className="w-3 h-3 text-primary" />+{mission.pointsReward}
+                  <Sparkles className="w-3 h-3 text-primary" />+
+                  {mission.pointsReward}
                 </span>
               </div>
 

@@ -35,7 +35,7 @@ export function MilestonesCard() {
       {showConfetti && !reducedMotion && <Confetti />}
 
       <div className="flex items-center justify-between mb-6">
-        <h3 className="font-semibold text-lg">Reward Milestones</h3>
+        <h3 className="font-semibold text-lg">Recompensas</h3>
         <Button
           onClick={handleSimulatePoints}
           size="sm"
@@ -43,7 +43,7 @@ export function MilestonesCard() {
           className="border-primary/50 text-primary hover:bg-primary/10 bg-transparent"
         >
           <Plus className="w-4 h-4 mr-1" />
-          Simulate +10
+          Simular +10
         </Button>
       </div>
 
@@ -62,7 +62,10 @@ export function MilestonesCard() {
       {/* Disclaimer */}
       <div className="flex items-start gap-2 mt-4 p-3 rounded-lg bg-secondary/20 text-xs text-muted-foreground">
         <Info className="w-4 h-4 mt-0.5 shrink-0" />
-        <p>Rewards are subject to change. Keep earning points to secure your rewards!</p>
+        <p>
+          Recompensas podem mudar! Continue jogando para garantir suas
+          recompensas.
+        </p>
       </div>
     </div>
   )
@@ -97,8 +100,8 @@ function MilestoneItem({
               isUnlocked
                 ? "bg-primary border-primary text-primary-foreground"
                 : isNext
-                  ? "border-primary bg-primary/20 text-primary animate-pulse-glow"
-                  : "border-border bg-secondary text-muted-foreground"
+                ? "border-primary bg-primary/20 text-primary animate-pulse-glow"
+                : "border-border bg-secondary text-muted-foreground"
             }
           `}
         >
@@ -110,14 +113,22 @@ function MilestoneItem({
             <Lock className="w-3 h-3" />
           )}
         </div>
-        {!isLast && <div className={`w-0.5 h-8 ${isUnlocked ? "bg-primary" : "bg-border"}`} />}
+        {!isLast && (
+          <div
+            className={`w-0.5 h-8 ${isUnlocked ? "bg-primary" : "bg-border"}`}
+          />
+        )}
       </div>
 
       {/* Content */}
       <div
         className={`
           flex-1 p-3 rounded-lg transition-all -mt-1
-          ${isNext ? "bg-primary/10 border border-primary/30" : "bg-secondary/20 border border-transparent"}
+          ${
+            isNext
+              ? "bg-primary/10 border border-primary/30"
+              : "bg-secondary/20 border border-transparent"
+          }
           ${isUnlocked ? "opacity-60" : ""}
         `}
       >
@@ -125,12 +136,18 @@ function MilestoneItem({
           <div className="flex items-center gap-2">
             <span className="text-xl">{milestone.rewardIcon}</span>
             <div>
-              <p className={`font-medium ${isNext ? "text-primary" : ""}`}>{milestone.rewardName}</p>
-              <p className="text-xs text-muted-foreground">{milestone.pointsRequired.toLocaleString()} points</p>
+              <p className={`font-medium ${isNext ? "text-primary" : ""}`}>
+                {milestone.rewardName}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {milestone.pointsRequired.toLocaleString()} pontos
+              </p>
             </div>
           </div>
           {isNext && (
-            <span className="text-xs font-medium text-primary px-2 py-1 bg-primary/20 rounded-full">NEXT</span>
+            <span className="text-xs font-medium text-primary px-2 py-1 bg-primary/20 rounded-full">
+              PRÓXIMO
+            </span>
           )}
         </div>
       </div>
