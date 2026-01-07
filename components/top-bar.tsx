@@ -56,7 +56,7 @@ export function TopBar() {
             className="text-xl font-bold tracking-wider neon-text hidden sm:block"
             style={{ fontFamily: "var(--font-orbitron)" }}
           >
-            LUH<span className="text-primary">BOX</span>
+            NSK<span className="text-primary">BOX</span>
           </span>
         </div>
 

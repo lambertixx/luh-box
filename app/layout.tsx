@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron" })
 
 export const metadata: Metadata = {
-  title: "🎁 Luh Box",
+  title: "🎁 NSK Box",
   description: "Aqui você ganha mais!",
 }
 

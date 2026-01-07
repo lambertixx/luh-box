@@ -54,7 +54,7 @@ export function OnboardingPanel() {
             className="text-3xl md:text-4xl font-bold mb-4 neon-text"
             style={{ fontFamily: "var(--font-orbitron)" }}
           >
-            Bem vindo ao <span className="text-primary">LUH</span>BOX
+            Bem vindo ao <span className="text-primary">NSK</span>BOX
           </h1>
 
           <p className="text-muted-foreground mb-8 text-lg">
